@@ -1,15 +1,13 @@
 package com.liuz;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) {
-        AbstractApplicationContext context =
+        ApplicationContext context =
                 new ClassPathXmlApplicationContext("Beans.xml");
-        HelloWorld objA = (HelloWorld) context.getBean("helloWorld");
-        //objA.getMessage();
-        context.registerShutdownHook();
+        TextEditor te = (TextEditor) context.getBean("textEditor");
+        te.spellCheck();
     }
 }
